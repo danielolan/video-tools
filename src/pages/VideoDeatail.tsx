@@ -1,4 +1,5 @@
 import { TopBarDetail } from "../components/Videos/TopBarDetail";
+import DetailsList from "../components/VideosDetails/DetailsList";
 import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
 
 const VideoDeatail: React.FC = () => {
@@ -6,7 +7,7 @@ const VideoDeatail: React.FC = () => {
     <DashBoardLayout>
       <div className="p-4 pt-8">
         <TopBarDetail />
-        <section className="mt-4">Hola Aui la detalle de la otra tabal</section>
+        <DetailsList />
       </div>
     </DashBoardLayout>
   );
