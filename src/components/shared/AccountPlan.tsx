@@ -24,26 +24,26 @@ const AccountPlan: React.FC<AccountPlanProps> = ({
   bandwidthPercentage
 }) => {
   return (
-    <div className="px-3 mt-6 bg-custom-gray m-4 p-4 rounded-3xl mt-64">
+    <div className="px-3 bg-custom-gray p-6 rounded-3xl">
       <div className=" text-black p-2 rounded">
-        <p className="text-sm font-medium">{planName}</p>
-        <p className="text-xs">{renewalDate}</p>
+        <p className="text-sm font-bold">{planName}</p>
+        <p className="text-xs text-gray-500">{renewalDate}</p>
       </div>
-      <div className="flex justify-between items-center mt-3">
-        <span className="text-sm font-light text-gray-600">Almacenamiento</span>
-        <span className="text-sm font-semibold text-gray-700">{storageUsed}/{storageTotal}</span>
+      <div className="flex justify-between items-center mt-2 ">
+        <span className="text-xs font-light text-gray-600">Almacenamiento</span>
+        <span className="text-xs font-semibold text-gray-400">{storageUsed}/{storageTotal}</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
         <div className="bg-custom-violet h-1.5 rounded-full" style={{ width: `${storagePercentage}%` }}></div>
       </div>
-      <div className="flex justify-between items-center mt-3">
-        <span className="text-sm font-light text-gray-600">Banda Mensual</span>
-        <span className="text-sm font-semibold text-gray-700">{bandwidthUsed}/{bandwidthTotal}</span>
+      <div className="flex justify-between items-center mt-2">
+        <span className="text-xs font-light text-gray-600">Banda Mensual</span>
+        <span className="text-xs font-semibold text-gray-400 ">{bandwidthUsed}/{bandwidthTotal}</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
         <div className="bg-custom-violet h-1.5 rounded-full" style={{ width: `${bandwidthPercentage}%` }}></div>
       </div>
-      <button className="w-full bg-custom-violet text-white p-2 rounded-3xl mt-3">
+      <button className="w-auto bg-custom-violet text-white p-1 px-4 rounded-3xl mt-3">
         Administrar Plan
       </button>
     </div>

@@ -8,9 +8,9 @@ import TopBar from "../components/Videos/TopBar";
 
 const VideoPage: React.FC = () => {
   return (
-    <div className="flex h-screen m-8">
+    <div className="flex h-screen  p-5">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-white ml-4 rounded-2xl shadow-lg px-11">
+      <div className="flex-1 flex flex-col bg-white ml-4 rounded-2xl shadow px-11">
         <TopBar />
         <SearchBar />
         <VideoList />

@@ -13,9 +13,9 @@ interface VideoListItemProps {
 const VideoListItem: React.FC<VideoListItemProps> = ({ name, videosCount, size, lastModified }) => {
   
   return (
-    <div className="grid grid-cols-[auto,1fr,2fr,1fr,2fr] gap-4 items-center p-4 border-b border-gray-200 hover:bg-custom-gray">
-      <div className="pl-4"> {/* Ajustar el padding según sea necesario */}
-        <input type="checkbox" className="form-checkbox h-5 w-5" />
+    <div className="grid grid-cols-[auto,1fr,2fr,1fr,2fr] gap-4 cursor-pointer items-center p-4 border-b border-gray-200 hover:bg-custom-gray">
+      <div className="pl-4">
+        <input type="checkbox" className="form-checkbox h-4 w-4" />
       </div>
       <div className="flex items-center space-x-3">
         <FaFolder className='text-custom-violet'/>

@@ -1,10 +1,56 @@
 // Sidebar.tsx
 
-import React from "react";
-import AccountPlan from "./AccountPlan";
-import { FaPlay, FaChartBar, FaCog, FaFolder, FaTachometerAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Sidebar: React.FC = () => {
+import AccountPlan from "./AccountPlan";
+import {
+  FaPlay,
+  FaChartBar,
+  FaCog,
+  FaFolder,
+  FaTachometerAlt,
+} from "react-icons/fa";
+import { ButtonMenu } from "./ui/ButtonMenu";
+
+const OptionsMenu = [
+  {
+    isActive: true,
+    Icon: FaTachometerAlt ,
+    name: "Dashboard",
+    to: "/",
+  },
+  {
+    isActive: false,
+    Icon: FaFolder ,
+    name: "Videos",
+    to: "/videos",
+  },
+  {
+    isActive: false,
+    Icon: FaPlay ,
+    name: "Player",
+    to: "/player",
+  },
+  {
+    isActive: false,
+    Icon: FaChartBar ,
+    name: "Analytics",
+    to: "/analytics",
+  },
+  {
+    isActive: false,
+    Icon: FaCog,
+    name: "Configuraciones",
+    to: "/configurations",
+  },
+];
+
+const Sidebar = () => {
+  
+  const [isMobile, setIsMobile] = useState(false)
+
+
   const planDetails = {
     planName: "Mi Plan - Plus",
     renewalDate: "El uso se renueva el 3-may-23",
@@ -17,56 +63,30 @@ const Sidebar: React.FC = () => {
   };
   return (
     <aside className="w-64" aria-label="Sidebar">
-      <div className="flex flex-col justify-between h-full py-4 bg-white shadow-xl rounded-2xl">
-        <div className="pt-10">
-          
-            {/* Logo */}
-            <div className="flex justify-center mt-4">
+      <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
+        <div className="flex flex-col justify-between h-[100vh]">
+          {/* Logo */}
+          <div className="flex justify-center mt-12">
             <img
-              className="h-12 w-12"
+              className="h-16 w-16"
               src="/src/assets/img/logo.png"
               alt="Logo"
             />
           </div>
-            {/* Texto del Dashboard y el icono */}
-            <div className="flex justify-center mt-4">
-              <FaTachometerAlt className="w-4 h-4" />
-              <span className="ml-2">Dashboard</span>
-            </div>
-          
 
-          <nav className="mt-5 mb-7 mx-4">
-            <a
-              href="#"
-              className="flex items-center p-2 mb-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-700 hover:text-white"
-            >
-              <FaFolder className="w-4 h-4" />
-              <span className="ml-4">Videos</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center p-2 mb-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-700 hover:text-white"
-            >
-              <FaPlay className="w-4 h-4" />
-              <span className="ml-4">Player</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center p-2 mb-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-700 hover:text-white"
-            >
-              <FaChartBar className="w-4 h-4" />
-              <span className="ml-4">Analytics</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-purple-700 hover:text-white"
-            >
-              <FaCog className="w-4 h-4" />
-              <span className="ml-4">Configuraciones</span>
-            </a>
+          <nav className="mb-7 mx-4 mt-12">
+            {OptionsMenu.map((option) => (
+              <ButtonMenu
+                key={option.name}
+                isActive={option.isActive}
+                Icon={option.Icon}
+                name={option.name}
+                to={option.to}
+              />
+            ))}
           </nav>
 
-          <AccountPlan{...planDetails} />
+          <AccountPlan {...planDetails} />
         </div>
       </div>
     </aside>

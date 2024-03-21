@@ -7,7 +7,7 @@ const VideoList: React.FC = () => {
   return (
     <div className="flex flex-col">
       <div className="grid grid-cols-[auto,1fr,2fr,1fr,2fr] gap-4 py-4 px-4 font-medium text-gray-900 border-b border-gray-200">
-        <div className="pl-4"><input type="checkbox" className="form-checkbox h-5 w-5" /></div> 
+        <div className="pl-4"><input type="checkbox" className="form-checkbox h-4 w-4" /></div> 
         <div>Nombre</div>
         <div className="text-right">Videos</div>
         <div className="text-right">Tamaño</div>
