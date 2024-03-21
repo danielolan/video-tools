@@ -46,10 +46,10 @@ const OptionsMenu = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   
   const [isMobile, setIsMobile] = useState(false)
-
+  const sidebarClasses = isOpen ? "fixed inset-0 z-30 w-64" : "hidden lg:block lg:static lg:z-auto";
 
   const planDetails = {
     planName: "Mi Plan - Plus",
@@ -62,7 +62,7 @@ const Sidebar = () => {
     bandwidthPercentage: 90,
   };
   return (
-    <aside className="w-64 hidden lg:block" aria-label="Sidebar">
+    <aside className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
           {/* Logo */}
