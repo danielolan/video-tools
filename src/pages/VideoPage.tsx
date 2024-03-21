@@ -1,21 +1,18 @@
 // DashboardPage.tsx
 
 import React from "react";
-import Sidebar from "../components/shared/Sidebar";
 import VideoList from "../components/Videos/VideoList";
 import SearchBar from "../components/Videos/SearchBar";
 import TopBar from "../components/Videos/TopBar";
+import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
 
 const VideoPage: React.FC = () => {
   return (
-    <div className="flex h-screen  p-5">
-      <Sidebar />
-      <div className="flex-1 flex flex-col bg-white ml-4 rounded-2xl shadow px-11">
-        <TopBar />
-        <SearchBar />
-        <VideoList />
-      </div>
-    </div>
+    <DashBoardLayout>
+      <TopBar />
+      <SearchBar />
+      <VideoList />
+    </DashBoardLayout>
   );
 };
 

@@ -62,7 +62,7 @@ const Sidebar = () => {
     bandwidthPercentage: 90,
   };
   return (
-    <aside className="w-64" aria-label="Sidebar">
+    <aside className="w-64 hidden lg:block" aria-label="Sidebar">
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
           {/* Logo */}
