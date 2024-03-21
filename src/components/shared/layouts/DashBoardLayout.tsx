@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TopBar from "../../Videos/TopBar";
 import Sidebar from "../Sidebar";
 
@@ -7,10 +7,24 @@ interface PropsLayoutDash {
 }
 const DashBoardLayout: React.FC<PropsLayoutDash> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+ 
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && sidebarOpen) {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [sidebarOpen]);
 
   return (
     <div className="flex h-screen p-5">

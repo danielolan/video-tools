@@ -1,7 +1,7 @@
 // Sidebar.tsx
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import AccountPlan from "./AccountPlan";
 import {
@@ -10,31 +10,32 @@ import {
   FaCog,
   FaFolder,
   FaTachometerAlt,
+  FaQuestionCircle,
 } from "react-icons/fa";
 import { ButtonMenu } from "./ui/ButtonMenu";
 
 const OptionsMenu = [
   {
     isActive: true,
-    Icon: FaTachometerAlt ,
+    Icon: FaTachometerAlt,
     name: "Dashboard",
     to: "/",
   },
   {
     isActive: false,
-    Icon: FaFolder ,
+    Icon: FaFolder,
     name: "Videos",
     to: "/videos",
   },
   {
     isActive: false,
-    Icon: FaPlay ,
+    Icon: FaPlay,
     name: "Player",
     to: "/player",
   },
   {
     isActive: false,
-    Icon: FaChartBar ,
+    Icon: FaChartBar,
     name: "Analytics",
     to: "/analytics",
   },
@@ -44,12 +45,23 @@ const OptionsMenu = [
     name: "Configuraciones",
     to: "/configurations",
   },
+  {
+    isActive: false,
+    Icon: FaQuestionCircle,
+    name: "Ayuda",
+    to: "/Help",
+  },
 ];
 
-const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
-  
-  const [isMobile, setIsMobile] = useState(false)
-  const sidebarClasses = isOpen ? "fixed inset-0 z-30 w-64" : "hidden lg:block lg:static lg:z-auto";
+const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isOpen, toggleSidebar }) => {
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  const location = useLocation();
+
+  const [isMobile, setIsMobile] = useState(false);
+  const sidebarClasses = isOpen
+    ? "fixed inset-0 z-30 w-64"
+    : "hidden lg:block lg:static lg:z-auto";
 
   const planDetails = {
     planName: "Mi Plan - Plus",
@@ -61,8 +73,24 @@ const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
     bandwidthTotal: "50 TB",
     bandwidthPercentage: 90,
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        toggleSidebar();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, toggleSidebar]);
   return (
-    <aside className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
+    <aside ref={sidebarRef} className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
           {/* Logo */}
@@ -75,15 +103,20 @@ const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
           </div>
 
           <nav className="mb-7 mx-4 mt-8">
-            {OptionsMenu.map((option) => (
-              <ButtonMenu
-                key={option.name}
-                isActive={option.isActive}
-                Icon={option.Icon}
-                name={option.name}
-                to={option.to}
-              />
-            ))}
+            {OptionsMenu.map((option) => {
+              if (option.name === "Ayuda" && location.pathname === "/") {
+                return null; // No renderizar el item Ayuda cuando esté en la página de videos
+              }
+              return (
+                <ButtonMenu
+                  key={option.name}
+                  isActive={option.isActive}
+                  Icon={option.Icon}
+                  name={option.name}
+                  to={option.to}
+                />
+              );
+            })}
           </nav>
 
           <AccountPlan {...planDetails} />

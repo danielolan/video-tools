@@ -9,7 +9,7 @@ import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
 const VideoPage: React.FC = () => {
   return (
     <DashBoardLayout>
-      <TopBar />
+      
       <SearchBar />
       <VideoList />
     </DashBoardLayout>
