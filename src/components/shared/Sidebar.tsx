@@ -74,7 +74,7 @@ const Sidebar = () => {
             />
           </div>
 
-          <nav className="mb-7 mx-4 mt-12">
+          <nav className="mb-7 mx-4 mt-8">
             {OptionsMenu.map((option) => (
               <ButtonMenu
                 key={option.name}

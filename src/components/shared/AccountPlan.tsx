@@ -24,7 +24,7 @@ const AccountPlan: React.FC<AccountPlanProps> = ({
   bandwidthPercentage
 }) => {
   return (
-    <div className="px-3 bg-custom-gray p-6 rounded-3xl">
+    <div className="px-3 bg-custom-gray p-6 rounded-3xl mb-6">
       <div className=" text-black p-2 rounded">
         <p className="text-sm font-bold">{planName}</p>
         <p className="text-xs text-gray-500">{renewalDate}</p>
