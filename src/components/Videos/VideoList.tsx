@@ -54,6 +54,27 @@ const VideoList: React.FC = () => {
         size="284 MB"
         lastModified="11/sep/2021"
       />
+       <VideoListItem
+        id="comision-23"
+        name="Comizzión"
+        videosCount={10}
+        size="284 MB"
+        lastModified="11/sep/2021"
+      />
+       <VideoListItem
+        id="comision-23"
+        name="Comizzión"
+        videosCount={10}
+        size="284 MB"
+        lastModified="11/sep/2021"
+      />
+       <VideoListItem
+        id="comision-23"
+        name="Comizzión"
+        videosCount={10}
+        size="284 MB"
+        lastModified="11/sep/2021"
+      />
     </div>
   );
 };

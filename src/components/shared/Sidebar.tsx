@@ -1,7 +1,7 @@
 // Sidebar.tsx
 
-import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import {  useLocation } from "react-router-dom";
 
 import AccountPlan from "./AccountPlan";
 import {
@@ -58,10 +58,10 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
 
   const location = useLocation();
 
-  const [isMobile, setIsMobile] = useState(false);
+
   const sidebarClasses = isOpen
-    ? "fixed inset-0 z-30 w-64"
-    : "hidden lg:block lg:static lg:z-auto";
+  ? "fixed z-30 w-64 h-screen" // Adjust width and height as needed
+  : "hidden lg:block lg:static lg:z-auto";
 
   const planDetails = {
     planName: "Mi Plan - Plus",
@@ -74,10 +74,23 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
     bandwidthPercentage: 90,
   };
 
- 
-  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        toggleSidebar();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, toggleSidebar]);
   return (
-    <aside  className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
+    <aside ref={sidebarRef} className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
           {/* Logo */}

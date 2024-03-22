@@ -1,15 +1,21 @@
 // DashboardPage.tsx
 
-import React from "react";
 import VideoList from "../components/Videos/VideoList";
 import SearchBar from "../components/Videos/SearchBar";
-import TopBar from "../components/Videos/TopBar";
+
 import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
+import { useState } from "react";
+import TopBar from "../components/Videos/TopBar";
+
+// VideoPage.tsx
 
 const VideoPage: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
-    <DashBoardLayout>
-      
+    <DashBoardLayout sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar}>
+      <TopBar toggleSidebar={toggleSidebar} />
       <SearchBar />
       <VideoList />
     </DashBoardLayout>

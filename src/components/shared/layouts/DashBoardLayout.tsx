@@ -5,53 +5,41 @@ import { useRef } from "react";
 
 interface PropsLayoutDash {
   children: JSX.Element | JSX.Element[];
+  sidebarOpen: boolean;
+  toggleSidebar: () => void;
 }
-const DashBoardLayout: React.FC<PropsLayoutDash> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
- 
-  const sidebarRef = useRef();  // Agrega esta referencia
-  
-  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+const DashBoardLayout: React.FC<PropsLayoutDash> = ({ children, sidebarOpen, toggleSidebar }) => {
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  // Efecto para cerrar el sidebar en pantallas grandes
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024 && sidebarOpen) {
-        setSidebarOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [sidebarOpen]);
-
-  // Nuevo efecto para manejar el clic fuera del sidebar
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024 && sidebarOpen) {
-        setSidebarOpen(false);
+        toggleSidebar();
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [sidebarOpen]);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [sidebarOpen, toggleSidebar]);
 
+  // Efecto para cerrar el sidebar al hacer clic fuera de él
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (sidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setSidebarOpen(false);
+        toggleSidebar();
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => document.removeEventListener('mousedown', handleOutsideClick);
-  }, [sidebarOpen]);
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [sidebarOpen, toggleSidebar]);
 
   return (
     <div className="flex h-screen p-5">
-       <div ref={sidebarRef} className="sidebar-class">
-        <Sidebar isOpen={sidebarOpen} />
-      </div>
+      <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="flex-1 flex flex-col bg-white ml-4 rounded-2xl shadow px-8 w-full">
-        <TopBar toggleSidebar={toggleSidebar} />
         {children}
       </div>
     </div>
