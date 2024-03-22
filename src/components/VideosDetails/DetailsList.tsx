@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import DetailsListItem from "./DetailsListItem";
 
 const DetailsList: React.FC = () => {
+  const [isAllChecked, setIsAllChecked] = useState(false);
+
+  const toggleAllCheckboxes = () => {
+    setIsAllChecked(!isAllChecked);
+    // Aquí deberías también manejar el estado de todos los checkboxes de los items
+    // Esto es solo una implementación visual, necesitarías una lógica adicional
+    // para manejar los estados de manera adecuada.
+  };
   return (
     <div className="flex flex-col mt-10">
-    <div className="grid grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 py-4 px-4 font-medium text-gray-900 border-b border-gray-200">
-      <div className="pl-4">
-        <input type="checkbox" className="form-checkbox h-4 w-4" />
-      </div>
-      <div className="font-bold">Nombre</div>
-      <div className="text-right font-bold">Tamaño</div>
-      <div className="text-right font-bold">Duracion</div>
-      <div className="text-right pr-8 font-bold">Última modificación</div>
+    <div className="grid grid-cols-1 md:grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 py-4 px-4 font-medium text-gray-900 border-b border-gray-200">
+    <div
+            className="hidden md:block w-4 h-4 border-2 border-gray-300 rounded-sm flex justify-center items-center cursor-pointer" 
+            onClick={toggleAllCheckboxes}
+          >
+            {/* Cuadro interno violeta que aparece cuando el checkbox está marcado */}
+            {isAllChecked && (
+              <div className="w-3 h-3 bg-custom-violet rounded-sm"></div>
+            )}
+          </div>
+      <div className="font-bold mt-3">Nombre</div>
+      <div className="text-right font-bold hidden md:block">Tamaño</div>
+      <div className="text-right font-bold hidden md:block">Duracion</div>
+      <div className="text-right pr-8 font-bold hidden md:block">Última modificación</div>
     </div>
       {/* List of element here should be beeter option than one by one*/}
       <DetailsListItem

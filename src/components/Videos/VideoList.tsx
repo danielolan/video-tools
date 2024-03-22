@@ -18,7 +18,7 @@ const VideoList: React.FC = () => {
       <div className="pl-4 flex items-center justify-center">
           {/* Contenedor externo del checkbox con el borde */}
           <div
-            className="w-4 h-4 border-2 border-gray-300 rounded-sm flex justify-center items-center cursor-pointer"
+            className="hidden md:block w-4 h-4 border-2 border-gray-300 rounded-sm flex justify-center items-center cursor-pointer" 
             onClick={toggleAllCheckboxes}
           >
             {/* Cuadro interno violeta que aparece cuando el checkbox está marcado */}
@@ -27,7 +27,7 @@ const VideoList: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="mt-3 font-bold">Nombre</div>
+        <div className="mt-3 font-bold hidden md:block">Nombre</div>
         <div className="text-right font-bold hidden md:block">Videos</div>
         <div className="text-right font-bold hidden md:block">Tamaño</div>
         <div className="text-right pr-8 font-bold hidden md:block">Última modificación</div>
