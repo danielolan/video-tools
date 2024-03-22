@@ -60,7 +60,7 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
 
 
   const sidebarClasses = isOpen
-  ? "fixed z-30 w-64 h-screen" // Adjust width and height as needed
+  ? "fixed z-30 w-64 h-screen" 
   : "hidden lg:block lg:static lg:z-auto";
 
   const planDetails = {
@@ -93,7 +93,7 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
     <aside ref={sidebarRef} className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
-          {/* Logo */}
+          
           <div className="flex justify-center mt-12">
             <img
               className="h-16 w-16"
@@ -105,7 +105,7 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
           <nav className="mb-7 mx-4 mt-8">
             {OptionsMenu.map((option) => {
               if (option.name === "Ayuda" && location.pathname === "/") {
-                return null; // No renderizar el item Ayuda cuando esté en la página de videos
+                return null; 
               }
               return (
                 <ButtonMenu

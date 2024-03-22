@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import TopBar from "../../Videos/TopBar";
+import { useEffect } from "react";
+
 import Sidebar from "../Sidebar";
 import { useRef } from "react";
 
