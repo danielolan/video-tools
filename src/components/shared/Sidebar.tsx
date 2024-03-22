@@ -74,23 +74,10 @@ const Sidebar: React.FC<{ isOpen: boolean, toggleSidebar: () => void }> = ({ isO
     bandwidthPercentage: 90,
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
-        toggleSidebar();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, toggleSidebar]);
+ 
+  
   return (
-    <aside ref={sidebarRef} className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
+    <aside  className={`${sidebarClasses} shadow bg-white rounded-2xl`}>
       <div className="flex flex-col justify-between h-full p-2 shadow bg-white rounded-2xl">
         <div className="flex flex-col justify-between h-[100vh]">
           {/* Logo */}
