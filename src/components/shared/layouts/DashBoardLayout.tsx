@@ -37,9 +37,9 @@ const DashBoardLayout: React.FC<PropsLayoutDash> = ({ children, sidebarOpen, tog
   }, [sidebarOpen, toggleSidebar]);
 
   return (
-    <div className="flex h-screen p-5">
+    <div className="flex flex-col md:flex-row md:h-screen overflow-hidden md:overflow-visible md:p-5 p-2">
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex-1 flex flex-col bg-white ml-4 rounded-2xl shadow px-8 w-full">
+      <div className="flex-1 overflow-auto flex flex-col bg-white rounded-2xl shadow md:px-8 px-0 md:ml-4 ml-0 w-full">
         {children}
       </div>
     </div>

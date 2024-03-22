@@ -13,8 +13,8 @@ const VideoList: React.FC = () => {
     // para manejar los estados de manera adecuada.
   };
   return (
-     <div className="flex flex-col mt-10 ">
-      <div className="grid grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 py-4 px-4 font-medium text-gray-900 border-b border-gray-200">
+    <div className="flex flex-col mt-10">
+    <div className="grid grid-cols-1 md:grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 py-4 px-4 font-medium text-gray-900 border-b border-gray-200">
       <div className="pl-4 flex items-center justify-center">
           {/* Contenedor externo del checkbox con el borde */}
           <div
@@ -28,9 +28,9 @@ const VideoList: React.FC = () => {
           </div>
         </div>
         <div className="mt-3 font-bold">Nombre</div>
-        <div className="text-right font-bold">Videos</div>
-        <div className="text-right font-bold">Tamaño</div>
-        <div className="text-right pr-8 font-bold">Última modificación</div>
+        <div className="text-right font-bold hidden md:block">Videos</div>
+        <div className="text-right font-bold hidden md:block">Tamaño</div>
+        <div className="text-right pr-8 font-bold hidden md:block">Última modificación</div>
       </div>
       {/* List of element here should be beeter option than one by one*/}
       <VideoListItem

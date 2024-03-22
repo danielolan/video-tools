@@ -5,7 +5,7 @@ import { FaFolder, FaPlay } from 'react-icons/fa';
 
 const NewFolderAndVideoButtons: React.FC = () => {
   return (
-    <div className="flex items-center space-x-2">
+    <div className="lg:flex block items-center space-y-2 lg:space-y-0 lg:space-x-2">
       <button className="flex items-center px-4 py-2 bg-custom-gray text-gray-600 hover:text-white hover:shadow-xl hover:bg-gray-400 focus:outline-none rounded">
         {/* Icono de nueva carpeta */}
         <FaFolder />
