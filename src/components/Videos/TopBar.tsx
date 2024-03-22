@@ -8,13 +8,13 @@ import { IoIosMenu } from "react-icons/io";
 
 const TopBar: React.FC<{toggleSidebar: () => void}> = ({toggleSidebar}) => {
   return (
-    // Changed from lg:flex-row flex-col to flex-col and added conditional lg:flex-row
-    <div className="flex lg:flex-row flex-col justify-between items-center lg:gap-4 p-4">
-      <section className="flex items-center gap-4">
+    <div className="flex flex-col lg:flex-row justify-between items-center gap-4 p-4 md:flex-row">
+      <section className="flex items-center gap-4 md:w-full md:justify-between">
         <IoIosMenu className="lg:hidden block text-2xl cursor-pointer" onClick={toggleSidebar} />
         <LibraryAndTrashButtons />
+        {/* Asegúrate de que el siguiente componente también sea un flex container en el breakpoint 'md' */}
+        <NewFolderAndVideoButtons className="hidden md:flex" />
       </section>
-      <NewFolderAndVideoButtons />
     </div>
   );
 
