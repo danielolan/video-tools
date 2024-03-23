@@ -20,7 +20,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <Link to={`detailvideo/${id}`} className="grid grid-cols-[auto,1fr] md:grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 items-center p-4 border-b border-gray-200 hover:bg-custom-gray">
+    <div className="grid grid-cols-[auto,1fr] md:grid-cols-[auto,minmax(0,1fr),100px,100px,200px] gap-4 items-center p-4 border-b border-gray-200 hover:bg-custom-gray">
       <div className="flex items-center space-x-2">
         <div
           className="w-4 h-4 border-2 border-gray-300 rounded-sm flex justify-center items-center mr-2"
@@ -32,7 +32,7 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
         </div>
         <FaFolder className="text-custom-violet md:mr-3" />
       </div>
-      <div className="flex flex-col space-y-1">
+      <Link to={`detailvideo/${id}`} className="flex flex-col space-y-1">
         <div className="cursor-pointer">
           <span className="block font-medium text-gray-900 truncate">
             {name}
@@ -43,11 +43,11 @@ const VideoListItem: React.FC<VideoListItemProps> = ({
           <div className="text-sm text-gray-600">{size}</div>
           <div className="text-sm text-gray-600">{lastModified}</div>
         </div>
-      </div>
+      </Link>
       <div className="text-right hidden md:block">{videosCount}</div>
       <div className="text-right hidden md:block">{size}</div>
       <div className="text-right pr-8 hidden md:block">{lastModified}</div>
-    </Link>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ import SearchBar from "../components/Videos/SearchBar";
 
 import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
 import { useState } from "react";
-import TopBar from "../components/Videos/TopBar";
+import TopBar from "../components/shared/TopBar";
 
 // VideoPage.tsx
 

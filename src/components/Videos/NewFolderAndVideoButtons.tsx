@@ -3,7 +3,7 @@ import { FaFolder, FaPlay } from "react-icons/fa";
 
 const NewFolderAndVideoButtons: React.FC = () => {
   return (
-    <div className="flex items-center space-x-4 md:justify-around">
+    <div className="flex items-center space-x-4 md:justify-around md:flex">
       <button className="flex items-center px-4 py-2 bg-custom-gray text-gray-600 hover:text-white hover:bg-gray-400 focus:outline-none rounded">
         <FaFolder />
         <span className="hidden sm:inline ml-2">Nueva carpeta</span>

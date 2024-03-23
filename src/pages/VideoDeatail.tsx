@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TopBarDetail } from "../components/Videos/TopBarDetail";
+import { TopBarDetail } from "../components/VideosDetails/TopBarDetail";
 import DetailsList from "../components/VideosDetails/DetailsList";
 import DashBoardLayout from "../components/shared/layouts/DashBoardLayout";
 

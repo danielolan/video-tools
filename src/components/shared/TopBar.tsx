@@ -1,5 +1,5 @@
-import LibraryAndTrashButtons from "./LibraryAndTrashButtons";
-import NewFolderAndVideoButtons from "./NewFolderAndVideoButtons";
+import LibraryAndTrashButtons from "../Videos/LibraryAndTrashButtons";
+import NewFolderAndVideoButtons from "../Videos/NewFolderAndVideoButtons";
 import { IoIosMenu } from "react-icons/io";
 
 const TopBar: React.FC<{ toggleSidebar: () => void }> = ({ toggleSidebar }) => {
@@ -12,7 +12,7 @@ const TopBar: React.FC<{ toggleSidebar: () => void }> = ({ toggleSidebar }) => {
         />
         <LibraryAndTrashButtons />
 
-        <NewFolderAndVideoButtons className="hidden md:flex" />
+        <NewFolderAndVideoButtons  />
       </section>
     </div>
   );

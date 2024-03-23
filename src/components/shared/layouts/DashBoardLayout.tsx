@@ -26,8 +26,8 @@ const DashBoardLayout: React.FC<PropsLayoutDash> = ({ children, sidebarOpen, tog
 
   // Efecto para cerrar el sidebar al hacer clic fuera de él
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (sidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (sidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
         toggleSidebar();
       }
     };
