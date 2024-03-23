@@ -1,30 +1,68 @@
-# React + TypeScript + Vite
+# maquetado-videotool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+El proyecto "maquetado-videotool" es una herramienta de video avanzada, construida utilizando tecnologías como TypeScript (TSX), Tailwind CSS, y React. Diseñada para ser eficiente y fácil de usar, esta herramienta ofrece una gran flexibilidad y potencia para los desarrolladores y diseñadores que trabajan en proyectos relacionados con multimedia.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
 
-## Expanding the ESLint configuration
+- **Privacidad asegurada:** El proyecto está configurado como privado.
+- **Moderno y Actualizado:** Utiliza las últimas versiones de dependencias como React, Tailwind CSS, y otras herramientas esenciales.
+- **Personalizable:** Incorpora colores personalizados en su tema de Tailwind CSS para una experiencia de usuario única.
+- **Entorno de desarrollo eficiente:** Scripts para desarrollo, construcción, linting y vista previa.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Cómo empezar
 
-- Configure the top-level `parserOptions` property like this:
+### Pre-requisitos
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Asegúrate de tener instalado Node.js en tu sistema. Si no lo tienes, puedes descargarlo desde [Node.js](https://nodejs.org/).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Instalación
+
+1. **Clona el repositorio:**
+   ```sh
+   git clone [url-del-repositorio]
+   cd maquetado-videotool
+Instala las dependencias:
+
+sh
+Copy code
+npm install
+Ejecuta el entorno de desarrollo:
+
+sh
+Copy code
+npm run dev
+Esto iniciará un servidor local y abrirá la herramienta en tu navegador predeterminado.
+
+Construye para producción:
+
+sh
+Copy code
+npm run build
+Esto generará una versión optimizada del proyecto listo para ser desplegado.
+
+Scripts Disponibles
+npm run dev: Inicia el servidor de desarrollo Vite.
+npm run build: Construye el proyecto para producción.
+npm run lint: Ejecuta ESLint para mantener el código limpio y consistente.
+npm run preview: Permite previsualizar la versión de producción localmente.
+Dependencias
+El proyecto utiliza diversas bibliotecas y frameworks, destacando entre ellos:
+
+React y ReactDOM para la construcción de la UI.
+Tailwind CSS para un diseño responsive y personalizable.
+Vite para una experiencia de desarrollo óptima.
+Varias utilidades como @heroicons/react y react-icons para la gestión de iconos.
+Configuración de Tailwind CSS
+La configuración de Tailwind se ha personalizado para incluir colores específicos (custom-gray, custom-violet) y se extiende para ajustarse a las necesidades del proyecto.
+
+Contribución
+Las contribuciones son lo que hacen a la comunidad open source un lugar increíble para aprender, inspirarse, y crear. Cualquier contribución que hagas será muy apreciada.
+
+Haz un Fork del proyecto
+Crea tu Feature Branch (git checkout -b feature/AmazingFeature)
+Realiza tus cambios
+Haz Commit de tus cambios (git commit -m 'Add some AmazingFeature')
+Haz Push al Branch (git push origin feature/AmazingFeature)
+Abre un Pull Request
