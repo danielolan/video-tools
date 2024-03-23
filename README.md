@@ -21,8 +21,8 @@ Asegúrate de tener instalado Node.js en tu sistema. Si no lo tienes, puedes des
 
 Para iniciar el proyecto localmente, sigue estos pasos:
 
-1. Clonar el repositorio: `git clone https://github.com/danielolan/disney--project.git`
-2. Cambiar al directorio del proyecto: `cd disney-project`
+1. Clonar el repositorio: `git clone [https://github.com/danielolan/disney--project.git](https://github.com/danielolan/video-tools.git)`
+2. Cambiar al directorio del proyecto: `cd maquetado-videotool`
 3. Instalar dependencias:
 - Con npm:
   ```
